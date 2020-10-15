@@ -18,13 +18,13 @@ post '/' do
   erb :index
 end
 
-get '/new_post' do
-  erb :new_post
+get '/create_post' do
+  erb :create_post
 end
 
-post '/new_post' do
+post '/create_post' do
   p = Post.new params[:post]
   p.save
 
-  erb :new_post
+  erb :create_post
 end
