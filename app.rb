@@ -2,14 +2,15 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'sqlite3'
 
-set :database, {adapter: 'sqlite3', database: 'Cook_Blog.db'}
+set :database, {adapter: 'sqlite3', database: 'Cook_Blog_db.db'}
 
-class Cook_Blog < ActiveRecord::Base
+class Post < ActiveRecord::Base
 end
 
 get '/' do
-  @result = Cook_Blog.order('created_at DESC')
+  @result = Post.order('created_at DESC')
   erb :index
 end
 
@@ -17,13 +18,13 @@ post '/' do
   erb :index
 end
 
-get '/add_post' do
-  erb :add_post
+get '/new_post' do
+  erb :new_post
 end
 
-post '/add_post' do
-  p = Cook_Blog.new params[:post]
+post '/new_post' do
+  p = Post.new params[:post]
   p.save
 
-  erb :add_post
+  erb :new_post
 end

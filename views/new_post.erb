@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Создайте новый пост</h2>
+
+  <form action="/new_post" method="POST">
+    <div class="form-group">
+    <label>Введите имя автора</label>
+    <input name="post[autor]" type="text" class="form-control" placeholder="Введите имя автора">
+    <small class="form-text text-muted">Вам не обязательно указывать своё настоящее имя.</small>
+  </div>
+  <div class="form-group">
+    <label>Введите наименование рецепта</label>
+    <input name="post[recipe_name]" type="text" class="form-control" placeholder="Введите наименование рецепта">
+  </div>
+  <div class="form-group">
+    <label>Введите контент поста</label>
+    <textarea name="post[content]" class="form-control" rows="3" placeholder="Поле для контента"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Добавьте изображение</label>
+    <input name="post[path_to_image]" type="file" class="form-control-file">
+    <small class="form-text text-muted">Изображение будет находиться между наименованием блюда и контентом</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Создать</button>
+  </form>
+</div>

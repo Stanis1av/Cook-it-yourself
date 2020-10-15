@@ -1,17 +1,17 @@
 <div class="container">
   <h1>Главная</h1>
-  <br/>
   <% @result.each do |details| %>
 
-    <p><%= details.autor %></p>
-    <br/>
-
-    <p><%= details.content %></p>
-    <br/>
-
-    <p><%= details.timestamps %></p>
-    <br/>
+  <p>
     <hr/>
+    <b><%= details.autor %></b>
+    <br/>
 
+    <%= details.content %>
+    <br/>
+
+    Added at<%= details.created_at %>
+    <hr/>
+  </p>
   <% end %>
 </div>
