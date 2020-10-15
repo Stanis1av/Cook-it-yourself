@@ -23,8 +23,19 @@ get '/create_post' do
 end
 
 post '/create_post' do
+
   p = Post.new params[:post]
+  @image = params[:path_to_image]
+  p.path_to_image = "/images/" + @image
   p.save
 
   erb :create_post
+end
+
+get '/users' do
+  erb :users
+end
+
+post '/users' do
+  erb :users
 end
