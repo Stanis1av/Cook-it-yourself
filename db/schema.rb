@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_161637) do
+ActiveRecord::Schema.define(version: 2020_10_15_192848) do
 
   create_table "posts", force: :cascade do |t|
     t.text "autor"
     t.text "recipe_name"
     t.text "content"
     t.string "path_to_image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.text "login"
+    t.text "pass"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
