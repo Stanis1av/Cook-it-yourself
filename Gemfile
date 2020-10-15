@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-require 'sinatra'
-require 'sinatra-activerecord'
-require 'aciverecord'
-require 'rake'
-require 'sinatra-contrib'
-require 'sqlite3'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'aciverecord'
+gem 'rake'
+gem 'sinatra-contrib'
+gem 'sqlite3'
 
 group :develompent do
   gem 'tux'
