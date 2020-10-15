@@ -7,6 +7,13 @@ require 'sqlite3'
 set :database, {adapter: 'sqlite3', database: 'Cook_Blog_db.db'}
 
 class Post < ActiveRecord::Base
+  validates :autor, presence: true
+  validates :recipe_name, presence: true
+  validates :content, presence: true
+  validates :path_to_image, presence: true
+end
+
+class User < ActiveRecord::Base
 end
 
 get '/' do
@@ -28,8 +35,14 @@ post '/create_post' do
   @image = params[:path_to_image]
   p.path_to_image = "/images/" + @image
   p.save
+  if p.save
+    erb "Product successfully created."
+  else
+    @error = p.errors.full_messages.first
+    erb :create_post
+  end
 
-  erb :create_post
+
 end
 
 get '/users' do
@@ -37,5 +50,8 @@ get '/users' do
 end
 
 post '/users' do
+  u = User.new params[:user]
+  u.save
+
   erb :users
 end
