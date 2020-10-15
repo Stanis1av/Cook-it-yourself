@@ -1,7 +1,8 @@
-class CookBlogs < ActiveRecord::Migration[6.0]
+class CreatePosts < ActiveRecord::Migration[6.0]
   def change
     create_table :posts do |t|
       t.text :autor
+      t.text :recipe_name
       t.text :content
       t.string :path_to_image
 
