@@ -50,8 +50,17 @@ get '/users' do
 end
 
 post '/users' do
-  u = User.new params[:user]
-  u.save
+  @log = params[:login]
+  @pass = params[:pass]
+  u = User.all
 
-  erb :users
+  u.each do |d|
+    erb "#{d.pass.inspect} == #{@pass} && #{d.login.inspect} == #{@log}"
+    # if @pass == d.pass && @log == d.login
+    #   erb :create_post
+    # else
+    #   erb "#{d.pass.inspect} == #{@pass} && #{d.login.inspect} == #{@log}"
+    # end
+  end
+
 end
